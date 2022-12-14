@@ -1,0 +1,13 @@
+<h3>Formulario de animais</h3>
+
+<label for="nome">Nome</label>
+<input [(ngModel)]="animal.nome" id="nome">
+<br>
+<label for="dtNascimento">Data de Nascimento</label>
+<input type="date" [(ngModel)]="animal.dt_nascimento" id="dtNascimento">
+<br />
+<br />
+<button (click)="salvar()">{{botaoAcao}}</button>
+<button (click)="cancelar()">Cancelar</button>
+
+<h4>{{mensagem}}</h4>
