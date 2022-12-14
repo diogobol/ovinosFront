@@ -1,0 +1,23 @@
+<h3> Filtro </h3>
+<label for="id">Identificador</label>
+<input type="text" [(ngModel)]="nomePesquisado">
+<br />
+
+<h3>Lista de Animais</h3>
+<table *ngIf="lista.length>0">
+    <tr>
+        <td>Id</td>
+        <td>Animal</td>
+        <td>Data de Nascimento</td>
+        <td>Editar</td>
+        <td>Deletar</td>
+    </tr>
+    <tr *ngFor="let ani of lista | filtroPesquisa:nomePesquisado" >
+        <td>{{ani.id}}</td>
+        <td>{{ani.nome}}</td>
+        <td>{{ani.dt_nascimento | date:"dd/MM/yyyy"}}</td>
+        <td><a routerLink="/editar/{{ani.id}}"> Editar </a></td>
+        <td><a routerLink="/tabela" (click)="deletar(ani.id)">Excluir</a></td>
+    </tr>
+</table>
+<p *ngIf="lista.length<=0">Não existe aniamais cadastrados</p>
